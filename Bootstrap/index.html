@@ -1,489 +1,665 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test Basic Bootstrap</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Test Basic Bootstrap</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-	</script>
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
+      html,
+      body {
+        background-color: rgb(27, 27, 27);
+        scroll-behavior: smooth;
+      }
 
-		html,
-		body {
-			background-color: rgb(27, 27, 27);
-			scroll-behavior: smooth;
-		}
+      ul,
+      li {
+        list-style-type: none;
+      }
 
-		ul,
-		li {
-			list-style-type: none;
-		}
+      .typing-name {
+        border-right: 0.15em solid white;
+        text-shadow: 0 8px 10px rgb(12, 12, 12);
+        font-family: monospace;
+        letter-spacing: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: typingName 6s steps(var(--step)) infinite, blink 6s infinite;
+      }
 
-		.typing-name {
-			border-right: 0.15em solid white;
-			text-shadow: 0 8px 10px rgb(12, 12, 12);
-			font-family: monospace;
-			letter-spacing: 4px;
-			white-space: nowrap;
-			overflow: hidden;
-			animation: typingName 6s steps(var(--step)) infinite, blink 6s infinite;
-		}
+      .Paratthakorn-Sribunyong {
+        --step: 23;
+      }
 
-		.Paratthakorn-Sribunyong {
-			--step: 23;
-		}
+      .Thanakorn-Chancherngpanich {
+        --step: 26;
+      }
 
-		.Thanakorn-Chancherngpanich {
-			--step: 26;
-		}
+      .Thanadol-Sinananvanich {
+        --step: 22;
+      }
 
-		.Thanadol-Sinananvanich {
-			--step: 22;
-		}
+      .Prachya-Thongsan,
+      .Thana-Tingprasom {
+        --step: 16;
+      }
 
-		.Prachya-Thongsan,
-		.Thana-Tingprasom {
-			--step: 16;
-		}
+      @keyframes typingName {
+        0% {
+          width: 0%;
+        }
 
-		@keyframes typingName {
-			0% {
-				width: 0%;
-			}
+        52%,
+        100% {
+          width: 100%;
+        }
+      }
 
-			52%,
-			100% {
-				width: 100%;
-			}
-		}
+      @keyframes blink {
+        0%,
+        52%,
+        68%,
+        84%,
+        100% {
+          border-color: white;
+        }
 
-		@keyframes blink {
+        60%,
+        76%,
+        92% {
+          border-color: transparent;
+        }
+      }
 
-			0%,
-			52%,
-			68%,
-			84%,
-			100% {
-				border-color: white;
-			}
+      /* fixed navbar icon not appearing */
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+    </style>
+  </head>
 
-			60%,
-			76%,
-			92% {
-				border-color: transparent;
-			}
-		}
+  <script>
+    const users = [
+      {
+        username: "soon-404",
+        student: "62010336",
+        fullname: "Thanakorn Chancherngpanich",
+      },
+      {
+        username: "swekiiz",
+        student: "62010345",
+        fullname: "Thanadol Sinananvanich",
+      },
+      {
+        username: "exithere",
+        student: "62010381",
+        fullname: "Thana Tingprasom",
+      },
+      {
+        username: "littlelunar",
+        student: "62010533",
+        fullname: "Prachya Thongsan",
+      },
+      {
+        username: "clockwick",
+        student: "62010535",
+        fullname: "Paratthakorn Sribunyong",
+      },
+    ];
 
-		/* fixed navbar icon not appearing */
-		.navbar-toggler-icon {
-			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-		}
-	</style>
-</head>
+    async function fetchUser(user) {
+      const { username, student, fullname } = user;
+      try {
+        const res = await fetch(`https://api.github.com/users/${username}`);
+        const _user = await res.json();
+        const { avatar_url, name, company, followers, following } = _user;
 
-<script>
-	const users = [{
-			username: "soon-404",
-			student: "62010336",
-			fullname: "Thanakorn Chancherngpanich",
-		},
-		{
-			username: "swekiiz",
-			student: "62010345",
-			fullname: "Thanadol Sinananvanich",
-		},
-		{
-			username: "exithere",
-			student: "62010381",
-			fullname: "Thana Tingprasom",
-		},
-		{
-			username: "littlelunar",
-			student: "62010533",
-			fullname: "Prachya Thongsan",
-		},
-		{
-			username: "clockwick",
-			student: "62010535",
-			fullname: "Paratthakorn Sribunyong",
-		},
-	];
+        // const avatar_url = 'https://avatars.githubusercontent.com/u/57614928?v=4';
+        // const name = 'soon';
+        // const company = 'KMITL';
+        // const followers = 43;
+        // const following = 30;
 
-	async function fetchUser(user) {
-		const {
-			username,
-			student,
-			fullname
-		} = user;
-		try {
-			const res = await fetch(`https://api.github.com/users/${username}`);
-			const _user = await res.json();
-			const { avatar_url, name, company, followers, following } = _user;
-			
-			// const avatar_url = 'https://avatars.githubusercontent.com/u/57614928?v=4';
-			// const name = 'soon';
-			// const company = 'KMITL';
-			// const followers = 43;
-			// const following = 30;
-			
-			document.getElementById(`${username}_avatar_url`).src = avatar_url;
-			document.getElementById(`${username}_name`).innerText = name;
-			document.getElementById(`${username}_company`).innerText = company || 'KMITL';
-			document.getElementById(`${username}_followers`).innerText = followers;
-			document.getElementById(`${username}_following`).innerText = following;
-			document.getElementById(`${username}_student`).innerText = student;
-			document.getElementById(`${username}_fullname`).innerText = fullname;
-			document.getElementById(
-				`${username}_gitref`
-				).href = `https://github.com/${username}`;
-				// wait DOM loaded
-				
+        document.getElementById(`${username}_avatar_url`).src = avatar_url;
+        document.getElementById(`${username}_name`).innerText = name;
+        document.getElementById(`${username}_company`).innerText =
+          company || "KMITL";
+        document.getElementById(`${username}_followers`).innerText = followers;
+        document.getElementById(`${username}_following`).innerText = following;
+        document.getElementById(`${username}_student`).innerText = student;
+        document.getElementById(`${username}_fullname`).innerText = fullname;
+        document.getElementById(
+          `${username}_gitref`
+        ).href = `https://github.com/${username}`;
+        // wait DOM loaded
+      } catch (error) {
+        console.log(error);
+      } finally {
+        // window.addEventListener('DOMContentLoaded', function () {
+        // });
+      }
+    }
 
-		} catch (error) {
-			console.log(error);
-		}
-		finally {
-			// window.addEventListener('DOMContentLoaded', function () {
-				
-			// });
-			
-		}
-	}
+    users.map((user) => {
+      fetchUser(user);
+    });
+    // fetchUser(users[0]);
+  </script>
 
-	users.map((user) => {
-	  fetchUser(user);
-	});
-	// fetchUser(users[0]);
-</script>
+  <body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-sm">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item :hover">
+              <a class="nav-link fw-bold" href="#soon-404">soon-404</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="#swekiiz">swekiiz</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="#exithere">exithere</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="#littlelunar">littlelunar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="#clockwick">clockwick</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-<body>
-	<!-- Header -->
-	<nav class="navbar navbar-expand-sm">
+    <!-- Member 1 -->
+    <div
+      id="soon-404"
+      class="container-fluid font-monospace mb-4"
+      style="height: 100vh"
+    >
+      <div class="row d-flex position-relative py-5 px-3">
+        <!-- github icon -->
+        <div
+          class="btn bg-white rounded-circle position-absolute d-flex justify-content-center align-items-center"
+          style="width: 34px; height: 34px; top: 10px; left: 10px"
+        >
+          <a id="soon-404_gitref" href="https://github.com" target="_blank">
+            <svg
+              height="32"
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              version="1.1"
+              width="32"
+              data-view-component="true"
+              class="octicon octicon-mark-github v-align-middle"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+        <!-- github profile -->
+        <div class="container-fluid d-flex justify-content-center col-md-auto">
+          <img
+            alt="profile"
+            id="soon-404_avatar_url"
+            class="img-thumbnail rounded"
+            width="350px"
+            height="350px"
+          />
+        </div>
+        <!-- profile -->
+        <div
+          class="d-flex justify-content-center align-items-center col-md-auto"
+          style="position: relative; color: #fff; font-weight: normal"
+        >
+          <div style="width: min-content; font-size: calc(2vw)">
+            <div
+              class="text-white Paratthakorn-Sribunyong typing-name my-4"
+              id="soon-404_fullname"
+              style="font-size: calc(2.5vw)"
+            >
+              full name
+            </div>
+            <div class="d-flex justify-content-around mb-4">
+              <!-- Followers -->
+              <div
+                class="d-flex flex-column justify-content-center align-items-center"
+              >
+                <div class="fw-bold" id="soon-404_followers">000</div>
+                <div>Followers</div>
+              </div>
+              <!-- Following -->
+              <div
+                class="d-flex flex-column justify-content-center align-items-center"
+              >
+                <div class="fw-bold" id="soon-404_following">000</div>
+                <div>Following</div>
+              </div>
+            </div>
+            <div class="d-flex flex-column">
+              <div class="my-2">
+                <span class="fw-bold">Username</span> :
+                <span id="soon-404_name">Github username</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold">StudentID</span> :
+                <span id="soon-404_student">kmitl studentId</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold">University</span> :
+                <span id="soon-404_company">University</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of Member 1 -->
 
-		<div class="container-fluid">
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mx-auto">
-					<li class="nav-item :hover">
-            
-						<a class="nav-link fw-bold" href="#soon-404">soon-404</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link fw-bold" href="#swekiiz">swekiiz</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link fw-bold" href="#exithere">exithere</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link fw-bold" href="#littlelunar">littlelunar</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link fw-bold" href="#clockwick">clockwick</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+    <!-- Member 2 -->
+    <div
+      id="swekiiz"
+      class="container-fluid font-monospace mb-4"
+      style="height: 100vh"
+    >
+      <div class="row d-flex position-relative py-5 px-3">
+        <!-- github icon -->
+        <div
+          class="btn bg-white rounded-circle position-absolute d-flex justify-content-center align-items-center"
+          style="width: 34px; height: 34px; top: 10px; left: 10px"
+        >
+          <a id="swekiiz_gitref" href="https://github.com" target="_blank">
+            <svg
+              height="32"
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              version="1.1"
+              width="32"
+              data-view-component="true"
+              class="octicon octicon-mark-github v-align-middle"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+        <!-- github profile -->
+        <div class="container-fluid d-flex justify-content-center col-md-auto">
+          <img
+            alt="profile"
+            id="swekiiz_avatar_url"
+            class="img-thumbnail rounded"
+            width="350px"
+            height="350px"
+          />
+        </div>
+        <!-- profile -->
+        <div
+          class="d-flex justify-content-center align-items-center col-md-auto"
+          style="position: relative; color: #fff; font-weight: normal"
+        >
+          <div style="width: min-content; font-size: calc(2vw)">
+            <div
+              class="text-white Paratthakorn-Sribunyong typing-name my-4"
+              id="swekiiz_fullname"
+              style="font-size: calc(2.5vw)"
+            >
+              full name
+            </div>
+            <div class="d-flex justify-content-around mb-4">
+              <!-- Followers -->
+              <div
+                class="d-flex flex-column justify-content-center align-items-center"
+              >
+                <div class="fw-bold" id="swekiiz_followers">000</div>
+                <div>Followers</div>
+              </div>
+              <!-- Following -->
+              <div
+                class="d-flex flex-column justify-content-center align-items-center"
+              >
+                <div class="fw-bold" id="swekiiz_following">000</div>
+                <div>Following</div>
+              </div>
+            </div>
+            <div class="d-flex flex-column">
+              <div class="my-2">
+                <span class="fw-bold">Username</span> :
+                <span id="swekiiz_name">Github username</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold">StudentID</span> :
+                <span id="swekiiz_student">kmitl studentId</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold">University</span> :
+                <span id="swekiiz_company">University</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of Member 2 -->
 
-	<!-- Member 1 -->
-	<div id="soon-404" class="container-fluid font-monospace mb-4">
-		<div class="col col-md-12 d-flex bg-dark justify-content-around position-relative py-5 px-3">
-			<div class="btn bg-white rounded-circle position-absolute d-flex justify-content-center align-items-center" 
-				style="width: 34px; height: 34px; top: 10px; left: 10px">
-				<a id="soon-404_gitref" href="https://github.com" target="_blank">
-					<svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true"
-						class="octicon octicon-mark-github v-align-middle">
-						<path fill-rule="evenodd"
-							d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-						</path>
-					</svg>
-				</a>
-			</div>
-			<div class="d-flex justify-content-center align-items-center" 
-				style="position: relative; color: #fff; font-weight: normal; " >
-				<div style="width: min-content; font-size: calc(2vw);">
-					<div class="text-white Paratthakorn-Sribunyong typing-name my-4" id="soon-404_fullname"
-						style="font-size: calc(2.5vw);">
-						full name
-					</div>
-					<div class="d-flex justify-content-around mb-4">
-						<!-- Followers -->
-						<div class="d-flex flex-column justify-content-center align-items-center">
-							<div class="fw-bold" id="soon-404_followers">000</div>
-							<div>Followers</div>
-						</div>
-						<!-- Following -->
-						<div class="d-flex flex-column justify-content-center align-items-center">
-							<div class="fw-bold" id="soon-404_following">000</div>
-							<div>Following</div>
-						</div>
-					</div>
-					<div class="d-flex flex-column">
-						<div class="my-2">
-							<span class="fw-bold">Username</span> :
-							<span id="soon-404_name">Github username</span>
-						</div>
-						<div class="my-2">
-							<span class="fw-bold">StudentID</span> :
-							<span id="soon-404_student">kmitl studentId</span>
-						</div>
-						<div class="my-2">
-							<span class="fw-bold">University</span> :
-							<span id="soon-404_company">University</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="d-flex justify-content-center align-items-center" style="max-width: 320px;">
-				<img alt="profile" id="soon-404_avatar_url" class="img-fluid"/>
-			</div>
-		</div>
-	</div>
-	<!-- end of Member 1 -->
+    <!-- Member 3 -->
+    <div
+      id="exithere"
+      class="container-fluid font-monospace mb-4"
+      style="height: 100vh"
+    >
+      <div
+        class="row d-flex justify-content-around position-relative py-5 px-3"
+      >
+        <!-- github icon -->
+        <div
+          class="btn bg-white rounded-circle position-absolute d-flex justify-content-center align-items-center"
+          style="width: 34px; height: 34px; top: 10px; left: 10px"
+        >
+          <a id="exithere_gitref" href="https://github.com" target="_blank">
+            <svg
+              height="32"
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              version="1.1"
+              width="32"
+              data-view-component="true"
+              class="octicon octicon-mark-github v-align-middle"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+        <!-- github profile -->
+        <div class="container-fluid d-flex justify-content-center col-md-auto">
+          <img
+            alt="profile"
+            id="exithere_avatar_url"
+            class="img-thumbnail rounded"
+            width="350px"
+            height="350px"
+          />
+        </div>
+        <!-- profile -->
+        <div
+          class="d-flex justify-content-center align-items-center col-md-auto"
+          style="position: relative; color: #fff; font-weight: normal"
+        >
+          <div style="width: min-content; font-size: calc(2vw)">
+            <div
+              class="text-white Paratthakorn-Sribunyong typing-name my-4"
+              id="exithere_fullname"
+              style="font-size: calc(2.5vw)"
+            >
+              full name
+            </div>
+            <div class="d-flex justify-content-around mb-4">
+              <!-- Followers -->
+              <div
+                class="d-flex flex-column justify-content-center align-items-center"
+              >
+                <div class="fw-bold" id="exithere_followers">000</div>
+                <div>Followers</div>
+              </div>
+              <!-- Following -->
+              <div
+                class="d-flex flex-column justify-content-center align-items-center"
+              >
+                <div class="fw-bold" id="exithere_following">000</div>
+                <div>Following</div>
+              </div>
+            </div>
+            <div class="d-flex flex-column">
+              <div class="my-2">
+                <span class="fw-bold">Username</span> :
+                <span id="exithere_name">Github username</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold">StudentID</span> :
+                <span id="exithere_student">kmitl studentId</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold">University</span> :
+                <span id="exithere_company">University</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of Member 3 -->
 
-	<!-- Member 2 -->
-	<div id="swekiiz" class="container-fluid font-monospace mb-4">
-		<div class="col col-md-12 d-flex bg-dark justify-content-around position-relative py-5 px-3">
-			<div class="btn bg-white rounded-circle position-absolute d-flex justify-content-center align-items-center"
-				style="width: 34px; height: 34px; top: 10px; left: 10px">
-				<a id="swekiiz_gitref" href="https://github.com" target="_blank">
-					<svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true"
-						class="octicon octicon-mark-github v-align-middle">
-						<path fill-rule="evenodd"
-							d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-						</path>
-					</svg>
-				</a>
-			</div>
-			<div class="d-flex justify-content-center align-items-center"
-				style="position: relative; color: #fff; font-weight: normal; ">
-				<div style="width: min-content; font-size: calc(2vw);">
-					<div class="text-white Paratthakorn-Sribunyong typing-name my-4" id="swekiiz_fullname"
-						style="font-size: calc(2.5vw);">
-						full name
-					</div>
-					<div class="d-flex justify-content-around mb-4">
-						<!-- Followers -->
-						<div class="d-flex flex-column justify-content-center align-items-center">
-							<div class="fw-bold" id="swekiiz_followers">000</div>
-							<div>Followers</div>
-						</div>
-						<!-- Following -->
-						<div class="d-flex flex-column justify-content-center align-items-center">
-							<div class="fw-bold" id="swekiiz_following">000</div>
-							<div>Following</div>
-						</div>
-					</div>
-					<div class="d-flex flex-column">
-						<div class="my-2">
-							<span class="fw-bold">Username</span> :
-							<span id="swekiiz_name">Github username</span>
-						</div>
-						<div class="my-2">
-							<span class="fw-bold">StudentID</span> :
-							<span id="swekiiz_student">kmitl studentId</span>
-						</div>
-						<div class="my-2">
-							<span class="fw-bold">University</span> :
-							<span id="swekiiz_company">University</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="bg-image d-flex justify-content-center align-items-center">
-				<img alt="profile" id="swekiiz_avatar_url" class="img-fluid"/>
-			</div>
-		</div>
-	</div>
-	<!-- end of Member 2 -->
+    <!-- Member 4 -->
+    <div
+      id="littlelunar"
+      class="container-fluid font-monospace mb-4"
+      style="height: 100vh"
+    >
+      <div
+        class="col col-md-12 d-flex justify-content-around position-relative py-5 px-3"
+      >
+        <!-- github icon -->
 
-	<!-- Member 3 -->
-	<div id="exithere" class="container-fluid font-monospace mb-4">
-		<div class="col col-md-12 d-flex bg-dark justify-content-around position-relative py-5 px-3">
-			<div class="btn bg-white rounded-circle position-absolute d-flex justify-content-center align-items-center"
-				style="width: 34px; height: 34px; top: 10px; left: 10px">
-				<a id="exithere_gitref" href="https://github.com" target="_blank">
-					<svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true"
-						class="octicon octicon-mark-github v-align-middle">
-						<path fill-rule="evenodd"
-							d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-						</path>
-					</svg>
-				</a>
-			</div>
-			<div class="d-flex justify-content-center align-items-center"
-				style="position: relative; color: #fff; font-weight: normal">
-				<div style="width: min-content; font-size: calc(2vw);">
-					<div class="text-white Paratthakorn-Sribunyong typing-name my-4" id="exithere_fullname"
-						style="font-size: calc(2.5vw);">
-						full name
-					</div>
-					<div class="d-flex justify-content-around mb-4">
-						<!-- Followers -->
-						<div class="d-flex flex-column justify-content-center align-items-center">
-							<div class="fw-bold" id="exithere_followers">000</div>
-							<div>Followers</div>
-						</div>
-						<!-- Following -->
-						<div class="d-flex flex-column justify-content-center align-items-center">
-							<div class="fw-bold" id="exithere_following">000</div>
-							<div>Following</div>
-						</div>
-					</div>
-					<div class="d-flex flex-column">
-						<div class="my-2">
-							<span class="fw-bold">Username</span> :
-							<span id="exithere_name">Github username</span>
-						</div>
-						<div class="my-2">
-							<span class="fw-bold">StudentID</span> :
-							<span id="exithere_student">kmitl studentId</span>
-						</div>
-						<div class="my-2">
-							<span class="fw-bold">University</span> :
-							<span id="exithere_company">University</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="d-flex justify-content-center align-items-center">
-				<img alt="profile" id="exithere_avatar_url" class="img-fluid"/>
-			</div>
-		</div>
-	</div>
-	<!-- end of Member 3 -->
+        <div
+          class="btn bg-white rounded-circle position-absolute d-flex justify-content-center align-items-center"
+          style="width: 34px; height: 34px; top: 10px; left: 10px"
+        >
+          <a id="littlelunar_gitref" href="https://github.com" target="_blank">
+            <svg
+              height="32"
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              version="1.1"
+              width="32"
+              data-view-component="true"
+              class="octicon octicon-mark-github v-align-middle"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+              ></path>
+            </svg>
+          </a>
+        </div>
 
-	<!-- Member 4 -->
-	<div id="littlelunar" class="container-fluid font-monospace mb-4">
-		<div class="col col-md-12 d-flex bg-dark justify-content-around position-relative py-5 px-3">
-			<div class="btn bg-white rounded-circle position-absolute d-flex justify-content-center align-items-center"
-				style="width: 34px; height: 34px; top: 10px; left: 10px">
-				<a id="littlelunar_gitref" href="https://github.com" target="_blank">
-					<svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true"
-						class="octicon octicon-mark-github v-align-middle">
-						<path fill-rule="evenodd"
-							d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-						</path>
-					</svg>
-				</a>
-			</div>
-			<div class="d-flex justify-content-center align-items-center"
-				style="position: relative; color: #fff; font-weight: normal">
-				<div style="width: min-content; font-size: calc(2vw);">
-					<div class="text-white Paratthakorn-Sribunyong typing-name my-4" id="littlelunar_fullname"
-						style="font-size: calc(2.5vw);">
-						full name
-					</div>
-					<div class="d-flex justify-content-around mb-4">
-						<!-- Followers -->
-						<div class="d-flex flex-column justify-content-center align-items-center">
-							<div class="fw-bold" id="littlelunar_followers">000</div>
-							<div>Followers</div>
-						</div>
-						<!-- Following -->
-						<div class="d-flex flex-column justify-content-center align-items-center">
-							<div class="fw-bold" id="littlelunar_following">000</div>
-							<div>Following</div>
-						</div>
-					</div>
-					<div class="d-flex flex-column">
-						<div class="my-2">
-							<span class="fw-bold">Username</span> :
-							<span id="littlelunar_name">Github username</span>
-						</div>
-						<div class="my-2">
-							<span class="fw-bold">StudentID</span> :
-							<span id="littlelunar_student">kmitl studentId</span>
-						</div>
-						<div class="my-2">
-							<span class="fw-bold">University</span> :
-							<span id="littlelunar_company">University</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="d-flex justify-content-center align-items-center">
-				<img alt="profile" id="littlelunar_avatar_url" class="img-fluid"/>
-			</div>
-		</div>
-	</div>
-	<!-- end of Member 4 -->
+        <!-- github profile -->
 
-	<!-- Member 5 -->
-	<div id="clockwick" class="container-fluid font-monospace mb-4">
-		<div class="col col-md-12 d-flex bg-dark justify-content-around position-relative py-5 px-3">
-			<div class="btn bg-white rounded-circle position-absolute d-flex justify-content-center align-items-center"
-				style="width: 34px; height: 34px; top: 10px; left: 10px">
-				<a id="clockwick_gitref" href="https://github.com" target="_blank">
-					<svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true"
-						class="octicon octicon-mark-github v-align-middle">
-						<path fill-rule="evenodd"
-							d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-						</path>
-					</svg>
-				</a>
-			</div>
-			<div class="d-flex justify-content-center align-items-center"
-				style="position: relative; color: #fff; font-weight: normal">
-				<div style="width: min-content; font-size: calc(2vw);">
-					<div class="text-white Paratthakorn-Sribunyong typing-name my-4" id="clockwick_fullname"
-						style="font-size: calc(2.5vw);">
-						full name
-					</div>
-					<div class="d-flex justify-content-around mb-4">
-						<!-- Followers -->
-						<div class="d-flex flex-column justify-content-center align-items-center">
-							<div class="fw-bold" id="clockwick_followers">000</div>
-							<div>Followers</div>
-						</div>
-						<!-- Following -->
-						<div class="d-flex flex-column justify-content-center align-items-center">
-							<div class="fw-bold" id="clockwick_following">000</div>
-							<div>Following</div>
-						</div>
-					</div>
-					<div class="d-flex flex-column">
-						<div class="my-2">
-							<span class="fw-bold">Username</span> :
-							<span id="clockwick_name">Github username</span>
-						</div>
-						<div class="my-2">
-							<span class="fw-bold">StudentID</span> :
-							<span id="clockwick_student">kmitl studentId</span>
-						</div>
-						<div class="my-2">
-							<span class="fw-bold">University</span> :
-							<span id="clockwick_company">University</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="d-flex justify-content-center align-items-center">
-				<img alt="profile" id="clockwick_avatar_url" class="img-fluid"/>
-			</div>
-		</div>
-	</div>
+        <div class="container-fluid d-flex justify-content-end col-md-auto">
+          <img
+            alt="profile"
+            id="littlelunar_avatar_url"
+            class="img-thumbnail rounded"
+            width="350px"
+            height="350px"
+          />
+        </div>
 
-	<!-- end of Member 5 -->
-	<!-- <footer
+        <!-- profile -->
+
+        <div
+          class="d-flex justify-content-center align-items-center col-md-auto"
+          style="position: relative; color: #fff; font-weight: normal"
+        >
+          <div style="width: min-content; font-size: calc(2vw)">
+            <div
+              class="text-white Paratthakorn-Sribunyong typing-name my-4"
+              id="littlelunar_fullname"
+              style="font-size: calc(2.5vw)"
+            >
+              full name
+            </div>
+            <div class="d-flex justify-content-around mb-4">
+              <!-- Followers -->
+              <div
+                class="d-flex flex-column justify-content-center align-items-center"
+              >
+                <div class="fw-bold" id="littlelunar_followers">000</div>
+                <div>Followers</div>
+              </div>
+              <!-- Following -->
+              <div
+                class="d-flex flex-column justify-content-center align-items-center"
+              >
+                <div class="fw-bold" id="littlelunar_following">000</div>
+                <div>Following</div>
+              </div>
+            </div>
+            <div class="d-flex flex-column">
+              <div class="my-2">
+                <span class="fw-bold">Username</span> :
+                <span id="littlelunar_name">Github username</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold">StudentID</span> :
+                <span id="littlelunar_student">kmitl studentId</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold">University</span> :
+                <span id="littlelunar_company">University</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of Member 4 -->
+
+    <!-- Member 5 -->
+    <div
+      id="clockwick"
+      class="container-fluid font-monospace mb-4"
+      style="height: 100vh"
+    >
+      <div
+        class="col col-md-12 d-flex justify-content-around position-relative py-5 px-3"
+      >
+        <!-- github icon -->
+
+        <div
+          class="btn bg-white rounded-circle position-absolute d-flex justify-content-center align-items-center"
+          style="width: 34px; height: 34px; top: 10px; left: 10px"
+        >
+          <a id="clockwick_gitref" href="https://github.com" target="_blank">
+            <svg
+              height="32"
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              version="1.1"
+              width="32"
+              data-view-component="true"
+              class="octicon octicon-mark-github v-align-middle"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- github profile -->
+        <div class="container-fluid d-flex justify-content-end col-md-auto">
+          <img
+            alt="profile"
+            id="clockwick_avatar_url"
+            class="img-thumbnail rounded"
+            width="350px"
+            height="350px"
+          />
+        </div>
+
+        <!-- profile -->
+
+        <div
+          class="d-flex justify-content-center align-items-center col-md-auto"
+          style="position: relative; color: #fff; font-weight: normal"
+        >
+          <div style="width: min-content; font-size: calc(2vw)">
+            <div
+              class="text-white Paratthakorn-Sribunyong typing-name my-4"
+              id="clockwick_fullname"
+              style="font-size: calc(2.5vw)"
+            >
+              full name
+            </div>
+            <div class="d-flex justify-content-around mb-4">
+              <!-- Followers -->
+              <div
+                class="d-flex flex-column justify-content-center align-items-center"
+              >
+                <div class="fw-bold" id="clockwick_followers">000</div>
+                <div>Followers</div>
+              </div>
+              <!-- Following -->
+              <div
+                class="d-flex flex-column justify-content-center align-items-center"
+              >
+                <div class="fw-bold" id="clockwick_following">000</div>
+                <div>Following</div>
+              </div>
+            </div>
+            <div class="d-flex flex-column">
+              <div class="my-2">
+                <span class="fw-bold">Username</span> :
+                <span id="clockwick_name">Github username</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold">StudentID</span> :
+                <span id="clockwick_student">kmitl studentId</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold">University</span> :
+                <span id="clockwick_company">University</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- end of Member 5 -->
+    <!-- <footer
       class="d-flex justify-content-center align-items-center p-2 bg-info"
     >
       <p class="h5 m-0 fw-bold" style="font-weight: 300; letter-spacing: 2px">
         Made by: 0336, 0345, 0381, 0533, 0535
       </p>
     </footer> -->
-</body>
-
+  </body>
 </html>
