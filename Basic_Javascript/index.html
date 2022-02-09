@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
+    <script>
+      function membersHover() {
+        document.getElementById("Member").style.backgroundColor = "yellow";
+      }
+      function notMembersHover() {
+        document.getElementById("Member").style.backgroundColor = "white";
+      }
+      function imgChange(link,text) {
+        document.getElementById("imshow").src = link;
+        document.getElementById("imshow").alt = text;
+      }
+
+      // click to display Date and Time
+      const colors = [
+        ["Tomato", "White"],
+        ["DodgerBlue", "MediumSeaGreen"],
+        ["SlateBlue", "Gray"],
+        ["Violet", "LightGray"],
+        ["Red", "Pink"],
+        ["Yellow", "Green"],
+      ];
+      let stateDateAndTime = 0;
+      function dateAndTime() {
+        const dateAndTimeBtn = document.getElementById("dateAndTimeButton");
+        if (stateDateAndTime === 0) {
+          dateAndTimeBtn.innerText = new Date();
+        }
+        dateAndTimeBtn.style.backgroundColor = colors[stateDateAndTime][0];
+        dateAndTimeBtn.style.color = colors[stateDateAndTime][1];
+        stateDateAndTime += 1;
+        stateDateAndTime %= colors.length;
+      }
+      // end of click to display Date and Time
+
+      // click to display members name and ID
+      const members = [
+        {
+          student: "62010336",
+          fullname: "Thanakorn Chancherngpanich",
+        },
+        {
+          student: "62010345",
+          fullname: "Thanadol Sinananvanich",
+        },
+        {
+          student: "62010381",
+          fullname: "Thana Tingprasom",
+        },
+        {
+          student: "62010533",
+          fullname: "Prachya Thongsan",
+        },
+        {
+          student: "62010535",
+          fullname: "Paratthakorn Sribunyong",
+        },
+      ];
+
+      function onClickMemberHandler() {
+        const members_ele = document.getElementById("members");
+
+        if (members_ele.firstChild) {
+          members_ele.removeChild(members_ele.firstChild);
+        } else {
+          const ul = document.createElement("ul");
+          members.forEach((obj) => {
+            const li = document.createElement("li");
+            li.textContent = `${obj.fullname} ID:${obj.student}`;
+            ul.appendChild(li);
+          });
+          members_ele.appendChild(ul);
+        }
+      };
+
+      // end of clicking to display members name and ID
+    </script>
+
+    <style>
+      a {
+        text-decoration: none;
+        color: #be9ac1;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>My First Javascript</h2>
+    <!--  -->
+    <button type="button" onclick="dateAndTime()" id="dateAndTimeButton">
+      Click me to display Date and Time.
+    </button>
+    <!--  -->
+    <br /><br />
+    <a
+      id="Member"
+      onmouseover="membersHover()"
+      onmouseout="notMembersHover()"
+      onclick="onClickMemberHandler()"
+      >Member</a
+    >
+    <div id="members"></div>
+    <h1>Snapshots</h1>
+    <ul>
+      <li>
+        <a
+          id="firework"
+          onclick="imgChange('https://github.com/eXitHere/Class_Soft_Stu/blob/main/Basic_Javascript/images/firework.jpeg?raw=true', 'Firework')"
+          >Firework</a
+        >
+      </li>
+      <li>
+        <a
+          id="forest"
+          onclick="imgChange('https://github.com/eXitHere/Class_Soft_Stu/blob/main/Basic_Javascript/images/forest.jpeg?raw=true', 'Forest')"
+          >Forest</a
+        >
+      </li>
+      <li>
+        <a
+          id="action"
+          onclick="imgChange('https://github.com/eXitHere/Class_Soft_Stu/blob/main/Basic_Javascript/images/action.jpeg?raw=true','Action')"
+          >Action</a
+        >
+      </li>
+      <li>
+        <a
+          id="buffalo"
+          onclick="imgChange('https://github.com/eXitHere/Class_Soft_Stu/blob/main/Basic_Javascript/images/buffalo.jpeg?raw=true','Buffalo')"
+          >Buffalo</a
+        >
+      </li>
+    </ul>
+    <img
+      id="imshow"
+      src="https://emeeting.kmitl.ac.th/pluginfile.php/1/theme_moove/logo/1613398761/Sub%20Logo%20KMITL_KMITL%20Go%20CI.png"
+      alt="Image Display Error"
+      width="450"
+      height="300"
+    />
+  </body>
+</html>
