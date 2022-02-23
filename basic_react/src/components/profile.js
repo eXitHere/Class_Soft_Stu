@@ -33,7 +33,7 @@ const Profile = ({ name, studentId, text, profileImage }) => {
       </div>
       <div class='w-full flex justify-center items-center'>
         <button
-          class='p-3 h-8 m-5 flex justify-center items-center rounded-sm border-1 border-borderClick bg-buttonClick hover:border-black hover:border-1 hover:bg-buttonHover'
+          class='p-3 sm:h-8 h-12 m-5 flex justify-center items-center rounded-sm border-1 border-borderClick bg-buttonClick hover:border-black hover:border-1 hover:bg-buttonHover'
           id='vote-up'
           onClick={clickHandle}
         >
@@ -43,7 +43,7 @@ const Profile = ({ name, studentId, text, profileImage }) => {
           {score === 10 ? "MAX" : score === 0 ? "MIN" : score}
         </div>
         <button
-          class='p-3 h-8 m-5 flex justify-center items-center rounded-sm border-1 border-borderClick bg-buttonClick hover:border-black hover:border-1 hover:bg-buttonHover'
+          class='p-3 sm:h-8 h-12 m-5 flex justify-center items-center rounded-sm border-1 border-borderClick bg-buttonClick hover:border-black hover:border-1 hover:bg-buttonHover'
           id='vote-down'
           onClick={clickHandle}
         >

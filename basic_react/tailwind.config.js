@@ -2,6 +2,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      maxWidth: {
+        "card": "52rem",
+      },
       colors: {
         "indexBg": "#696969",
         "header": "#FFD700",
