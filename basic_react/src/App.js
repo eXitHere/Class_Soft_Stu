@@ -33,7 +33,7 @@ function App() {
     {
       name: "Paratthakorn Sribunyong",
       studentId: "62010535",
-      text: "Eget lorem dolor sed viverra. Id volutpat lacus laoreet non curabitur gravida arcu ac. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Purus in massa tempor nec feugiat nisl pretium. Magna fringilla urna porttitor rhoncus dolor purus non. Mi eget",
+      text: "Eget lorem dolor sed viverra. Id volutpat lacus laoreet non curabitur gravida arcu ac. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Purus in massa tempor nec feugiat nisl pretium. Magna fringilla urna porttitor rhoncus dolor purus non.",
       //profile: "https://avatars.githubusercontent.com/u/50941709?v=4",
       profile: require("./images/Paratthakorn.jfif"),
     },
