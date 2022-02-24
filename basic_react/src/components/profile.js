@@ -17,6 +17,8 @@ const Profile = ({ name, studentId, text, profileImage }) => {
 				alert('cannot unvote');
 			}
 		}
+
+		
 	};
 
 	return (

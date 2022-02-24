@@ -23,7 +23,7 @@ function App() {
 		{
 			name: 'Prachya Thongsan',
 			studentId: '62010533',
-			text: 'asdasdsad',
+			text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, nihil voluptatem aperiam suscipit, temporibus nam ea fugiat eveniet voluptates quo quam earum iste vel eum esse deserunt molestias maiores sed?',
 			profile: 'https://avatars.githubusercontent.com/u/70775537?v=4',
 		},
 		{
@@ -35,7 +35,9 @@ function App() {
 	];
 	
 	return (
-		<div className=''>
+		
+		<div className='container'>
+		
 			{userDate.map((e, idx) => (
 				<Profile
 					name={e.name}
