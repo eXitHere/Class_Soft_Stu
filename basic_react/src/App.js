@@ -40,9 +40,9 @@ function App() {
   ];
 
   return (
-    <div class='flex flex-col items-center bg-indexBg'>
-      <p class='text-2xl font-bold p-10 text-header'>Group's Members</p>
-      <div class='flex flex-col items-center pb-20 max-w-card'>
+    <div className='flex flex-col items-center bg-indexBg'>
+      <p className='text-2xl font-bold p-10 text-header'>Group's Members</p>
+      <div className='flex flex-col items-center pb-20 max-w-card'>
         {userDate.map((e, idx) => (
           <Profile
             name={e.name}
